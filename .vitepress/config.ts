@@ -20,17 +20,19 @@ export default defineConfig({
   description: siteConfig.description,
   lang: 'zh-CN',
   cleanUrls: true,
+  head: [['link', { rel: 'icon', href: '/logo.svg' }]],
   vite: { plugins: [imagetools()] },
   themeConfig: {
+    logo: '/logo.svg',
     nav: [{ text: 'RSS', link: '/rss.xml' }],
     outline: false,
     aside: false,
-    socialLinks: [
-      { icon: 'github', link: 'https://github.com/mancuoj' },
-      { icon: 'twitter', link: 'https://twitter.com/humancuoj' },
-    ],
+    socialLinks: [{ icon: 'github', link: 'https://github.com/mancuoj' }],
     footer: {
       copyright: siteConfig.copyRight,
+    },
+    search: {
+      provider: 'local',
     },
   },
 
