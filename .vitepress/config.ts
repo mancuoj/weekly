@@ -7,7 +7,7 @@ import formatPageContentForRSS from './theme/utils/formatPageContentForRSS'
 
 const siteConfig = {
   title: '漫游周刊',
-  description: '一个开发者周刊，记录我的所见所闻所思，每周日更新。feedId:61028780704995328+userId:42149520014970880',
+  description: '一个开发者周刊，记录我的所见所闻所思，每周日更新。',
   copyRight: 'Copyright © 2024-present ❤️ Mancuoj',
   hostName: 'https://weekly.mancuoj.me',
   dir: 'weekly',
