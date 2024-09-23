@@ -22,7 +22,7 @@ export default defineConfig({
   cleanUrls: true,
   vite: { plugins: [imagetools()] },
   themeConfig: {
-    nav: [{ text: 'RSS', link: '/feed' }],
+    nav: [{ text: 'RSS', link: '/rss.xml' }],
     outline: false,
     aside: false,
     socialLinks: [
@@ -87,6 +87,6 @@ export default defineConfig({
       })
     }
 
-    writeFileSync(path.join(config.outDir, 'feed'), feed.rss2())
+    writeFileSync(path.join(config.outDir, 'rss.xml'), feed.rss2())
   },
 })
