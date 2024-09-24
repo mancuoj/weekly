@@ -76,7 +76,7 @@ export default defineConfig({
       language: siteConfig.lang,
     })
 
-    const posts = await createContentLoader(`/${siteConfig.dir}/*.md`, {
+    const data = await createContentLoader(`/${siteConfig.dir}/*.md`, {
       render: true,
       includeSrc: true,
       transform(rawData) {
@@ -86,7 +86,7 @@ export default defineConfig({
       },
     }).load()
 
-    for (const { url, excerpt, frontmatter, html } of posts) {
+    for (const { url, excerpt, frontmatter, html } of data) {
       const improvedHtml = formattedPagesForRSS[url]
 
       feed.addItem({

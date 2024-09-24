@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import { data as posts } from '/data/posts.data'
+import { data } from '/data/weekly.data'
 import formatDate from '/.vitepress/theme/utils/formatDate'
 import getSorted from '/.vitepress/theme/utils/getSorted'
 
-const sortedPosts = getSorted(posts)
+const sortedData = getSorted(data)
 </script>
 
 <ul>
-  <li v-for="post of sortedPosts">
-    <strong><a :href="post.url">{{ post.frontmatter.title }}</a></strong><br/>
-    <span>{{ formatDate(post.frontmatter.date) }}</span>
+  <li v-for="item of sortedData">
+    <strong><a :href="item.url">{{ item.frontmatter.title }}</a></strong><br/>
+    <span>{{ formatDate(item.frontmatter.date) }}</span>
   </li>
 </ul>
 
