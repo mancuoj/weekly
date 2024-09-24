@@ -11,6 +11,15 @@ const siteConfig = {
   copyRight: 'Copyright © 2024-present ❤️ Mancuoj',
   hostName: 'https://weekly.mancuoj.me',
   dir: 'weekly',
+  lang: 'zh-CN',
+  author: {
+    name: 'Mancuoj',
+    email: 'mancuoj@gmail.com',
+    link: 'https://weekly.mancuoj.me',
+  },
+  github: 'https://github.com/mancuoj',
+  twitter: 'https://twitter.com/humancuoj',
+  rss: '/rss.xml',
 }
 
 const formattedPagesForRSS: Record<string, string> = {}
@@ -18,16 +27,24 @@ const formattedPagesForRSS: Record<string, string> = {}
 export default defineConfig({
   title: siteConfig.title,
   description: siteConfig.description,
-  lang: 'zh-CN',
+  lang: siteConfig.lang,
   cleanUrls: true,
   head: [['link', { rel: 'icon', href: '/logo.svg' }]],
   vite: { plugins: [imagetools()] },
   themeConfig: {
     logo: '/logo.svg',
-    nav: [{ text: 'RSS', link: '/rss.xml' }],
     outline: false,
     aside: false,
-    socialLinks: [{ icon: 'github', link: 'https://github.com/mancuoj' }],
+    socialLinks: [
+      { icon: 'github', link: siteConfig.github },
+      { icon: 'twitter', link: siteConfig.twitter },
+      {
+        icon: {
+          svg: '<svg xmlns="http://www.w3.org/2000/svg" width="112" height="128" viewBox="0 0 448 512"><path fill="currentColor" d="M0 64c0-17.7 14.3-32 32-32c229.8 0 416 186.2 416 416c0 17.7-14.3 32-32 32s-32-14.3-32-32C384 253.6 226.4 96 32 96C14.3 96 0 81.7 0 64m0 352a64 64 0 1 1 128 0a64 64 0 1 1-128 0m32-256c159.1 0 288 128.9 288 288c0 17.7-14.3 32-32 32s-32-14.3-32-32c0-123.7-100.3-224-224-224c-17.7 0-32-14.3-32-32s14.3-32 32-32"/></svg>',
+        },
+        link: siteConfig.rss,
+      },
+    ],
     footer: {
       copyright: siteConfig.copyRight,
     },
@@ -56,7 +73,7 @@ export default defineConfig({
       id: siteConfig.hostName,
       link: siteConfig.hostName,
       copyright: siteConfig.copyRight,
-      language: 'zh-CN',
+      language: siteConfig.lang,
     })
 
     const posts = await createContentLoader(`/${siteConfig.dir}/*.md`, {
@@ -78,13 +95,7 @@ export default defineConfig({
         link: `${siteConfig.hostName}${url}`,
         description: excerpt,
         content: improvedHtml || html,
-        author: [
-          {
-            name: 'Mancuoj',
-            email: 'mancuoj@gmail.com',
-            link: 'https://weekly.mancuoj.me',
-          },
-        ],
+        author: [siteConfig.author],
         date: frontmatter.date,
       })
     }
