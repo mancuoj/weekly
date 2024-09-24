@@ -6,8 +6,8 @@ import { imagetools } from 'vite-imagetools'
 import formatPageContentForRSS from './theme/utils/formatPageContentForRSS'
 
 const siteConfig = {
-  title: '漫游周刊',
-  description: '一个开发者周刊，记录我的所见所闻所思，每周日更新。',
+  title: '漫谈',
+  description: '一个开发者周刊，记录我的所见所闻所思，不定期更新。',
   copyRight: 'Copyright © 2024-present ❤️ Mancuoj',
   hostName: 'https://weekly.mancuoj.me',
   dir: 'weekly',
