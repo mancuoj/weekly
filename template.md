@@ -1,6 +1,12 @@
 ---
 title: 001 - 三分钟热度
 date: 2024-09-29
+prev:
+  text: '002'
+  link: '/weekly/002'
+next:
+  text: '003'
+  link: '/weekly/003'
 ---
 
 ## 开源项目推荐
