@@ -101,7 +101,7 @@ export default defineConfig({
         description: excerpt,
         content: improvedHtml || html,
         author: [siteConfig.author],
-        date: frontmatter.date,
+        date: new Date(frontmatter.date),
       })
     }
 
