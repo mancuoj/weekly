@@ -8,7 +8,7 @@ import formatPageContentForRSS from './theme/utils/formatPageContentForRSS'
 const siteConfig = {
   title: '漫谈',
   description: '一个开发者周刊，记录我的所见所闻所思，每周日更新',
-  copyRight: 'Copyright © 2024-present ❤️ Mancuoj',
+  copyright: 'Copyright © 2024-present ❤️ Mancuoj',
   hostName: 'https://weekly.mancuoj.me',
   dir: 'weekly',
   lang: 'zh-CN',
@@ -46,11 +46,15 @@ export default defineConfig({
       },
     ],
     footer: {
-      copyright: siteConfig.copyRight,
+      copyright: siteConfig.copyright,
     },
     search: {
       provider: 'local',
     },
+  },
+
+  rewrites: {
+    'weekly/:file': ':file'
   },
 
   transformHtml(_code, _id, { content, pageData }) {
@@ -66,13 +70,14 @@ export default defineConfig({
     }
   },
 
+
   buildEnd: async (config) => {
     const feed = new Feed({
       title: siteConfig.title,
       description: siteConfig.description,
       id: siteConfig.hostName,
       link: siteConfig.hostName,
-      copyright: siteConfig.copyRight,
+      copyright: siteConfig.copyright,
       language: siteConfig.lang,
     })
 

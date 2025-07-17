@@ -8,7 +8,7 @@ const sortedData = getSorted(data)
 
 <ul>
   <li v-for="item of sortedData">
-    <strong><a :href="item.url">{{ item.frontmatter.title }}</a></strong><br/>
+    <strong><a :href="item.url.split('/').pop()">{{ item.frontmatter.title }}</a></strong><br/>
     <span>{{ formatDate(item.frontmatter.date) }}</span>
   </li>
 </ul>
